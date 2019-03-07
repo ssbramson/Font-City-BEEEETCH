@@ -1,0 +1,155 @@
+Definitions: 
+
+
+OPENTYPE: 
+Definition - 
+Em Size - 1000
+
+TrueType font: 
+Definition - 
+Em Size - 1024, 2048, or 4096 (convention a power of two) 
+
+
+**REF** >> https://ae2scommunications.com/choosing-the-right-font-for-the-right-message/
+
+Em/point size (UPM, units per em) - 
+
+Leading - 
+
+Baseline - 
+
+ASCENDER:
+Ascender line - 
+Ascender Height == (UPM [em/point size] - DL [descender line]) - AL [ascender line]
+
+DESCENDER:
+Descender line - 
+Descender height - (UPM [em/point size] - AL [ascender line]) - DL [descender line]
+
+X:
+X line - 
+X height -
+
+CAPITAL
+Capital line - 
+Capital height -
+
+WIDTH:
+Character width - 
+Body width
+Kerning
+
+
+~~~~~~~~~
+
+ASCENDER: 
+The height length above 0 EM on the y-axis of the font's characters
+
+DESCENDER: 
+The height length below 0 EM on the y-axis of the font's characters
+
+BASELINE:
+The 
+
+CAPITAL HEIGHT:
+
+
+X-HEIGHT
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+TTF to WOFF2/WOFF convertor logic
+
+----------------------------------
+• ANALYSIS OF SUBMITTED TTF FILE •
+----------------------------------
+
+[0.0] ~~~ CHARACTERS EM SIZE REVIEW/CHECK ~~~ 
+
+0.00 - Check the initial EM size of the TFF file to ensure that font's characters is set to "1000 Em Size"
+0.01 - If the font's characters are set to 1024, 2048, or 4096, convert the font's character to "1000 Em Size" and export/save to a new TTF file 
+
+[0.1] ~~~ UNICODE CHARACTER CHECKER ~~~ 
+
+0.10 - Check the font character's Ascent and Descent values when added together equal "1000" to assure that the size " Em Size" is equal to the "Unicode Size"
+0.11 - If not, scale the Ascent and Descent values either up or down to have them equal the 1000 Em Size value
+
+[0.2] ~~~ ASCENDER AND DESCENDER ~~~ 
+
+0.20 - Check that the Ascent Height equals 800 and the Descent Height equals 200
+0.21 - If not, scale the Ascent Height and Descent values either up or down to have them equal the respected values in 0.20 
+
+[0.3] ~~~ CAPITAL HEIGHT ~~~ 
+0.30 - Check how many, if any, character(s) have an "Ascent" that is over the Capital Height
+0.31 - If there are character(s) with an "Ascent" higher then the Capital Height, scale down those character(s) down that their "Ascent" y-axis point is the same as the Capital Line value
+0.32 - Check if the Capital Height is equal to the Ascent Height
+
+[0.4] ~~~ _______  AND OVERHANG ~~~
+
+
+
+[0.5] ~~~ NUMBERS: LINING v. NON-LINING ~~~ 
+
+
+
+////////////////////////////////////////////////////////////////
+
+[1.0] ~~~ UNICODE CHARACTER CHECKER ~~~ 
+
+1.0 - 
+
+
+////////////////////////////////////////////////////////////////
+
+[2.0] ~~~ WOFF2/WOFF ~~~ 
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+** ASCENDENT CHARACTERS **
+b | unicode: U+0062 (0x62)
+d | unicode: U+0064 (0x64)
+f | unicode: U+0066 (0x66)
+h | unicode: U+0068 (0x68)
+i | unicode: U+0069 (0x69)
+k | unicode: U+006B (0x6b)
+l | unicode: U+006C (0x7c)
+t | unicode: U+0074 (0x74)
+
+
+** DESCENDENT CHARACTERS **
+g | unicode: U+0067 (0x67)
+p | unicode: U+0070 (0x70)
+q | unicode: U+0071 (0x71)
+y | unicode: U+0079 (0x79)
+
+
+** (A)/(DE)-SCENDENT CHARACTERS **
+j | unicode: U+006A (0x6a)
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+** FORMULAS ** 
+
+AH [ascender height] == (YUPM [y axis em/point size] - DL [descender line]) - AL [ascender line]
+DH [descender height] == (YUPM [y axis em/point size] - AL [ascender line]) - DL [descender line]
+
+CH [capital height] == AH [ascender height] value
+
+XH [x height] == AL [ascender line] - XL [x line]
+
+CW [character width] == XUPM [x axis em/point size]
+
+BW [body width] == 
+
+
